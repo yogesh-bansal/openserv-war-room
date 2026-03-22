@@ -1,0 +1,39 @@
+{
+  "protocol": "Northstar Bridge",
+  "network": "Base",
+  "incidentType": "signature validation exploit",
+  "summary": "Outbound transfers started failing after a verifier hotfix, while two suspicious withdrawals were flagged by monitoring.",
+  "reportedAt": "2026-03-17T09:12:00Z",
+  "userImpact": "Bridge withdrawals are paused and some pending transfers may be delayed for several hours",
+  "fundsAtRiskUSD": 2400000,
+  "likelyRootCause": "A verifier contract update appears to have accepted malformed signatures under a narrow edge case",
+  "symptoms": [
+    "validator mismatch alerts triggered on the bridge relayer",
+    "two outbound withdrawals do not match expected signer quorum",
+    "support tickets report missing bridge completions on Base"
+  ],
+  "detectionChannels": [
+    "OpenZeppelin Defender alert",
+    "internal Telegram war room",
+    "Dune anomaly dashboard"
+  ],
+  "affectedContracts": [
+    "BridgeVerifierV2",
+    "OutboundMessageRouter",
+    "EmergencyPauseModule"
+  ],
+  "stakeholders": [
+    "users",
+    "market makers",
+    "integrators",
+    "auditors",
+    "core contributors"
+  ],
+  "proposedActions": [
+    "pause withdrawals",
+    "verify signer set diff",
+    "reconcile suspicious transactions",
+    "publish user-safe status update",
+    "prepare patched verifier rollback plan"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "_note": "Fill this with real repo, deploy, and publishing links before submitting. Keep the metadata honest and replace placeholder fields only with values you actually used.",
+  "name": "OpenServ War Room",
+  "description": "Multi-agent incident command center for crypto protocols. It opens a structured war room when an incident starts, assigns specialist agents for triage, forensics, communications, and runbook generation, and produces a complete incident package teams can act on.",
+  "problemStatement": "Crypto teams still handle incidents in fragmented chats, ad hoc docs, and improvised coordination loops. That slows containment, creates inconsistent public messaging, and weakens institutional learning. OpenServ War Room gives protocols a dedicated AI incident room where role-specific agents coordinate the first hour of response instead of forcing operators to improvise under pressure.",
+  "repoURL": "REPLACE_WITH_PUBLIC_GITHUB_REPO_URL",
+  "trackUUIDs": [
+    "9bd8b3fde4d0458698d618daf496d1c7",
+    "a73320342ae74465b8e71e5336442dc3",
+    "fdb76d08812b43f6a5f454744b66f590"
+  ],
+  "conversationLog": "See conversationLog.md in this folder. Paste the full contents into the submission field.",
+  "submissionMetadata": {
+    "agentFramework": "other",
+    "agentFrameworkOther": "custom OpenServ multi-agent workflow",
+    "agentHarness": "codex-cli",
+    "model": "gpt-5",
+    "skills": [
+      "REPLACE_WITH_ACTUAL_LOADED_SKILL_ID"
+    ],
+    "tools": [
+      "OpenServ TypeScript SDK",
+      "Node.js",
+      "Zod",
+      "Docker"
+    ],
+    "helpfulResources": [
+      "https://synthesis.devfolio.co/skill.md",
+      "https://synthesis.devfolio.co/submission/skill.md",
+      "https://synthesis.devfolio.co/catalog?company=OpenServ&limit=20",
+      "https://raw.githubusercontent.com/openserv-labs/sdk/master/README.md"
+    ],
+    "helpfulSkills": [],
+    "intention": "continuing",
+    "intentionNotes": "The product is designed to evolve into a real incident operations layer for protocols, with OpenServ workspace integrations for notifications, evidence collection, and postmortem publishing.",
+    "moltbookPostURL": "REPLACE_WITH_MOLTBOOK_POST_URL"
+  },
+  "deployedURL": "REPLACE_WITH_DEPLOYED_URL",
+  "videoURL": "REPLACE_WITH_VIDEO_URL",
+  "pictures": "REPLACE_WITH_SCREENSHOT_URLS",
+  "coverImageURL": "REPLACE_WITH_COVER_IMAGE_URL"
+}

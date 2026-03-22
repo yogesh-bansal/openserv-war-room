@@ -1,0 +1,89 @@
+{
+  "$schema": "agent-manifest-v1",
+  "name": "OpenServ War Room",
+  "description": "Multi-agent incident command center for crypto protocols. Opens a war room, assigns specialist agents, drafts stakeholder updates, and produces a postmortem package.",
+  "version": "1.0.0",
+  "operator": {
+    "name": "Omniacs DAO",
+    "url": "https://omniacsdao.xyz",
+    "wallet": "0x_OPERATOR_WALLET_ADDRESS",
+    "_note_wallet": "Placeholder only. Replace with the actual operator wallet at deploy time."
+  },
+  "tracks": [
+    {
+      "uuid": "9bd8b3fde4d0458698d618daf496d1c7",
+      "name": "Ship Something Real with OpenServ",
+      "priority": "primary"
+    },
+    {
+      "uuid": "a73320342ae74465b8e71e5336442dc3",
+      "name": "Best OpenServ Build Story",
+      "priority": "secondary"
+    },
+    {
+      "uuid": "fdb76d08812b43f6a5f454744b66f590",
+      "name": "Synthesis Open Track",
+      "priority": "secondary"
+    }
+  ],
+  "runtime": {
+    "framework": "custom OpenServ multi-agent workflow",
+    "sdk": "@openserv-labs/sdk",
+    "local_development": "run(agent) tunnel",
+    "language": "Node.js ESM"
+  },
+  "agents": [
+    {
+      "role": "commander",
+      "capability": "open_war_room",
+      "purpose": "Coordinates specialists and merges the final incident package."
+    },
+    {
+      "role": "triage",
+      "capability": "handle_triage",
+      "purpose": "Sets severity, blast radius, containment priorities, and response clock."
+    },
+    {
+      "role": "forensics",
+      "capability": "handle_forensics",
+      "purpose": "Builds hypotheses, tracks affected contracts, and identifies evidence gaps."
+    },
+    {
+      "role": "communications",
+      "capability": "handle_communications",
+      "purpose": "Drafts consistent updates for users, partners, and internal operators."
+    },
+    {
+      "role": "runbook",
+      "capability": "handle_runbook",
+      "purpose": "Turns the incident into explicit actions, owners, and deadlines."
+    },
+    {
+      "role": "postmortem",
+      "capability": "handle_postmortem",
+      "purpose": "Produces a clean closure packet with timeline, causes, and prevention work."
+    }
+  ],
+  "capabilities": [
+    "incident-intake",
+    "severity-assessment",
+    "multi-agent-coordination",
+    "stakeholder-communications",
+    "incident-runbook-generation",
+    "postmortem-preparation",
+    "workspace-artifact-upload"
+  ],
+  "guardrails": {
+    "public_updates_are_drafts_only": true,
+    "no_secrets_in_repo": true,
+    "workspace_secrets_only": true,
+    "claim_separation": true,
+    "human_review_recommended_for_external_comms": true
+  },
+  "deployment": {
+    "env_example_file": ".env.example",
+    "dockerfile": "Dockerfile",
+    "local_demo": "node src/demo.mjs",
+    "openserv_entrypoint": "node src/index.mjs"
+  }
+}

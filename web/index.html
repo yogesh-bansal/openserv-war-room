@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenServ War Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">OpenServ Submission</p>
+          <h1>War room, not chat room.</h1>
+          <p class="lede">
+            A multi-agent incident command surface for crypto protocols. One intake becomes triage,
+            forensics, communications, action owners, and a postmortem draft.
+          </p>
+          <div class="hero-meta">
+            <span>Primary track: Ship Something Real with OpenServ</span>
+            <span>Secondary: Build Story, Open Track</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="label">Active Incident</p>
+          <h2 id="title"></h2>
+          <div class="severity-row">
+            <span id="severity"></span>
+            <span id="funds"></span>
+          </div>
+          <p id="summary" class="summary"></p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <p class="label">Workstreams</p>
+          <div id="workstreams" class="stack"></div>
+        </article>
+
+        <article class="panel">
+          <p class="label">Immediate Actions</p>
+          <ul id="actions" class="list"></ul>
+        </article>
+
+        <article class="panel wide">
+          <p class="label">Stakeholder Updates</p>
+          <div class="stack">
+            <div class="message">
+              <h3>Public</h3>
+              <p id="public-update"></p>
+            </div>
+            <div class="message">
+              <h3>Partners</h3>
+              <p id="partner-update"></p>
+            </div>
+            <div class="message">
+              <h3>Internal</h3>
+              <p id="internal-update"></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel wide">
+          <p class="label">Postmortem Timeline</p>
+          <ul id="timeline" class="list"></ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="./sample-report.js"></script>
+    <script src="./app.js"></script>
+  </body>
+  </html>

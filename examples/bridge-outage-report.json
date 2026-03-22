@@ -1,0 +1,91 @@
+{
+  "incidentId": "wr-50b1139bff",
+  "createdAt": "2026-03-17T10:30:00.000Z",
+  "title": "Northstar Bridge signature validation exploit",
+  "protocol": "Northstar Bridge",
+  "network": "Base",
+  "summary": "Outbound transfers started failing after a verifier hotfix, while two suspicious withdrawals were flagged by monitoring.",
+  "severity": "critical",
+  "severityScore": 11,
+  "fundsAtRiskUSD": 2400000,
+  "workstreams": [
+    {
+      "role": "triage",
+      "status": "done",
+      "outcome": "Classified as CRITICAL based on user disruption, funds at risk, and the incident profile. First objective is containment before message expansion."
+    },
+    {
+      "role": "forensics",
+      "status": "done",
+      "outcome": "Initial forensic posture centers on A verifier contract update appears to have accepted malformed signatures under a narrow edge case. Contract-level review should prioritize signer validation and any rollback path."
+    },
+    {
+      "role": "communications",
+      "status": "done",
+      "outcome": "Drafted three message layers so the team does not improvise under pressure."
+    },
+    {
+      "role": "runbook",
+      "status": "done",
+      "outcome": "Converted the incident into owned work instead of an unstructured coordination thread."
+    },
+    {
+      "role": "postmortem",
+      "status": "done",
+      "outcome": "Started the closure document early so the team captures facts while they are still fresh."
+    }
+  ],
+  "communications": {
+    "nextUpdateEta": "15 minutes",
+    "messages": {
+      "public": "We are investigating a critical incident affecting Northstar Bridge on Base. Current impact: Bridge withdrawals are paused and some pending transfers may be delayed for several hours. As a precaution, affected flows have been paused while the team validates system integrity. Next update within 15 minutes.",
+      "partners": "Northstar Bridge incident classification: CRITICAL. Affected contracts: BridgeVerifierV2, OutboundMessageRouter, EmergencyPauseModule. Please halt dependent automation until we confirm the signer path is safe.",
+      "internal": "Severity: CRITICAL (11/12) | Funds at risk: $2,400,000 | Comms discipline: one canonical timeline, one status owner, one evidence owner."
+    }
+  },
+  "runbook": {
+    "actions": [
+      {
+        "owner": "incident-commander",
+        "deadline": "immediate",
+        "task": "declare incident channel, freeze unrelated deploys, confirm severity"
+      },
+      {
+        "owner": "forensics",
+        "deadline": "15 minutes",
+        "task": "diff verifier logic, reconcile suspicious transfers, preserve traces"
+      },
+      {
+        "owner": "comms",
+        "deadline": "15 minutes",
+        "task": "publish initial user-safe update and prepare partner briefing"
+      },
+      {
+        "owner": "protocol-engineering",
+        "deadline": "30 minutes",
+        "task": "validate rollback or patched pause path before restoration"
+      },
+      {
+        "owner": "leadership",
+        "deadline": "30 minutes",
+        "task": "decide whether to extend pause window and engage external responders"
+      }
+    ]
+  },
+  "postmortem": {
+    "executiveSummary": "Northstar Bridge experienced a critical signature validation exploit. User impact centered on bridge withdrawals are paused and some pending transfers may be delayed for several hours.",
+    "timeline": [
+      "2026-03-17T09:12:00Z incident detected via OpenZeppelin Defender alert",
+      "T+05m containment discussion opened and on-call owners assigned",
+      "T+15m first user-safe status update prepared",
+      "T+30m signer and contract diff review underway",
+      "T+60m restoration or longer pause decision prepared for leadership"
+    ],
+    "prevention": [
+      "add deployment diff checks for signer quorum changes",
+      "require simulated malformed-signature tests before verifier upgrades",
+      "create a pre-approved incident comms template for bridge pauses",
+      "attach post-incident runbooks to the next production readiness review"
+    ]
+  }
+}

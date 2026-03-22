@@ -1,0 +1,18 @@
+{
+  "name": "openserv-war-room",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Multi-agent protocol incident command center built for OpenServ",
+  "scripts": {
+    "demo": "node src/demo.mjs",
+    "demo:scenario": "node src/demo.mjs ./scenarios/bridge-outage.json",
+    "agent": "node src/index.mjs",
+    "check": "node --check src/index.mjs && node --check src/demo.mjs && node --check src/openserv/start.mjs && node --check src/openserv/commander-agent.mjs && node --check src/openserv/specialist-agent.mjs && node --check src/core/engine.mjs && node --check src/core/roles.mjs && node --check src/core/utils.mjs"
+  },
+  "dependencies": {
+    "@openserv-labs/sdk": "^2.0.0",
+    "serve": "^14.2.4",
+    "zod": "^4.1.5"
+  }
+}
